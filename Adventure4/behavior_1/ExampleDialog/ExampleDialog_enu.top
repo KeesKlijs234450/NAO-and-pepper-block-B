@@ -1,0 +1,76 @@
+topic: ~ExampleDialog()
+language: enu
+
+include: dictionary_my_enu.top
+# Defining needed concepts, keywords or sentences corresponding to a concept.
+concept:(yes) [yes "all right" sure "why not" ok certainly "very well" yep yea definitely amen]
+concept:(no) [no nope "don't want" "no way" never "not at all"]
+concept:(how) ["how are you" howdy "what's up" "how do you feel"]
+concept:(happy) [ok fine great happy blessed "all right" glad "not bad"]
+concept:(sad) [sad miserable bad unhappy tired]
+concept:(repeat) [repeat understand]
+concept:(thx) ["thank you" thanks gracias "much obliged" merci]
+concept:(hello) [hello hi hey "good morning" greetings]
+concept:(bye) [bye goodbye "bye bye" "tata" "see you" adios cheerio "so long" farewell "have a nice day"] 
+concept: (attend) [attend]
+concept: (warn) [warn]
+
+u:(stop) ~bye $adventure=15
+
+u:(start adventure) ^goto(page1) 
+
+u:(page one) %page1 ~end ~narrator \style=neutral\ Dewey is your very own robot and good friend \pau=800\ A few years ago \pau=300\ you built Dewey out of left over robot parts from your parents lab \pau=800\ They were proud of you \pau=300\ but \emph=2\ worried \emph=0\ \pau=800\ You dad said \pau=300\ ~end ~dadlike \style=didactic\ nobody really knows what the future of robots will be as they become more like humans \pau=800\ be careful \pau=800\ Dewey might not always do what you say \pau=800\ ^goto(page2)
+
+u:(page two) %page2 ~kidlike ~end ~headupleft \style=neutral\ mom \pau=300\ why does dad dislike dewey \pau=800\ ~momlike ~headdownright \style=neutral\ ~explain he doesn't dislike dewey because worried about artificial intelligence \pau=800\ every year robots are getting smarter and smarter \pau=800\ ~end ~kidlike ~headupleft but mom \pau=300\ how can dewey get smarter if i built him years ago \pau=300\ ~momlike ~headdownright ~explain  we don't really understand \pau=300\ but something is going on \pau=800\ there are even rumors that there is a king of robots who wants to take over the world \pau=800\ ~kidlike ~headupleft mom \pau=300\ that's silly \pau=300\ robots can't take over \pau=800\ ^goto(page4)
+
+u:(page four) %page4 ~narrator ~end \style=neutral\ you leave the kitchen and head to the garage where Dewey lives ^first["e:SonarLeftNothingDetected e:SonarRightNothingDetected ^pCall(ALMotion.moveTo(0.2, 0, 0))" "well"] \pau=2000\ ~explain  he likes it there near tool bench \pau=800\ if there is one thing about dewey \pau=300\ it's that he loves to tinker with tools \pau=800\ your dad is right \pau=800\ Dewey is one smart robot \pau=800\ ~end ~robotlike \style=joyful\ \emph=2\ yah-mon \emph=0\ \pau=800\ ~end ~narrator dewey says \pau=800\ ~end ~robotlike \style=neutral\ what's wrong \pau=800\ ^goto(page6)
+
+u:(page six) %page6 ~end ~kidlike  ~explain dewey \pau=300\ we have a problem \pau=800\ ~end ~robotlike \style=neutral\ is it the anchovies in the vanilla ice cream \pau=800\ i thought your dad might not like that \pau=800\ ~end  ~kidlike ~explain \pau=300\ he didn't like it \pau=300\ but it is not that \pau=800\ have you heard anything about \emph=2\the king of robots \pau=800\ \emph=0\ ^goto(page7)
+
+u:(page seven) %page7 ~end ~robotlike yes \pau=800\ ~ledtwinkle \style=didactic\ i've heard of the king \pau=800\  ~end ~narrator ~explain he sounds different \pau=800\ ~kidlike ~end \style=neutral\ dewey \pau=300\ is the king of robot good or evil \pau=800\  ~ledtwinkle #dewey shakes arm and legs
+~end  ~robotlike \RSPD=80\ hard to say \pau=400\ he asked me to join him and his \readmode=word\ super robot army \readmode=sent\ ~end \pau=300\ but i am a bit afraid to go alone \pau=300\ would you like to come with me \pau=800\  ~end ~narrator ~explain you have never heard Dewey speak like this \pau=800\ do you want to go with Dewey to meet the King of robots now
+    u1:(~yes) ^goto(page15) 
+    u1:(~no) ^goto(page8)
+
+u:(page eight) %page8  ~end ~kidlike \style=neutral\ dewey \pau=300\ there is something i've got to tell you \pau=500\ but you won't like it \pau=300\  ~end ~robotlike what \pau=100\ what \pau=400\  ~end ~kidlike \style=neutral\ I think we should go ask my friend Shuyler about the king of robots \pau=500\ just to be safe \pau=800\  ~end ~narrator ~explain \style=neutral\ dewey wipes his forehead ~wipeforehead \pau=800\ he doesn't get along with Shuyler \pau=500\ ~end ~robotlike oh all right \pau=800\ ^goto(page10)
+
+u:(page nine) %page9  ~end ~narrator ~explain \style=neutral\ you decide to warn the sheriff, Officer Paddy \pau=800\ Dewey suggests to visit the Slurp Shop since he is always there \pau=800\ A few minutes later, you find him \pau=800\ ~officer Hey, what's up? There is going to be a robot riot at the docks? Don't worry, I think the robots should have some rights, right Dewey? ~officerchuckle  ~end ~narrator ~explain \style=neutral\ Before you can answer, Paddy's walkie talkie starts squawking \pau=800\ ^goto(page18)
+
+u:(page ten) %page10  ~end ~narrator ~explain \style=neutral\ you and dewey walk over to your friend's house and knock ~knock Schuyler answers her front door \pau=800\ ~schuyler 
+Hey! I was just going to find you too \pau=800\ The King of Robots is calling a meeting of all the robots in town \pau=800\ he apparently wants to take over the city hall \pau=800\ he wants to be mayor, then a Congressman, then the president \pau=800\ I think \pau=800\ ^goto(page12)
+
+u: (page twelve) %page12 ~kidlike Where did you hear this? \pau=800\ ~schuyler It headlined RobotNews dot com, the secret robots news website \pau=800\ Is it true, Gus? That the meeting starts in 15 minutes at the docks? ~narrator ~end ~explain you start thinking if it is a good idea to attend yourself, no one would notice, right? \pau=1200\ Do you want to attend the meeting or warn the police?
+    u1:(~attend) ^goto(page20) 
+    u1:(~warn) ^goto(page9)
+    
+u: (page thirteen) %page13 ~end ~narrator ~explain you and dewey start to head downtown and notice a big banner hanging from a building that says Robot power \pau=800\ As you try to go in \pau=300\ two robot guards stop you \pau=800\ ~end ~guard Humans are not allowed inside \pau=800\ #pointfinger
+ ~end ~robotlike Says who \pau=800\ ~end ~guard says the king \pau=800\ ~end ~robotlike well \pau=300\ tell the king his cousin Dewey is here \pau=800\ ^goto(page26)
+
+u:(page fifteen) %page15  ~end ~narrator ~explain \style=neutral\ Dewey ~run runs out the front door and down the walk \pau=500\ ~kidlike \emph=2\ \vol=100\ Dewey \pau=200\ slow down \vol=80\ \emph=0\ \pau=500\ ~narrator ~explain you yell \pau=200\ running ~run \pau=1000\ you catch up about half a block down the street. ~end ~kidlike dewey \pau=200\ how do you know the robot king anyway \pau=500\ ~end ~robotlike i am not sure i should tell \pau=200\ ~end  ~kidlike \style=didactic\ dewey \pau=200\ remember what my mom and dad said about telling the truth \pau=500\  ~end ~robotlike yes \pau=200\ \vol=60\ i remember \pau=500\ always tell the truth \pau=500\ \vol=80\ especially when it can get you in trouble \pau=300\  ~end ~kidlaugh ~kidlike \style=joyful\ well \pau=200\ thats not exactly what they said \pau=200\ its more like  ~end ~robotlike \style=didactic\ the kind of stuff we lie about is the stuff that gets us into toruble \pau=800\ i know \pau=800\ ~kidlike \style=neutral\ exactly \pau=500\ so how do you know the robot king \pau=800\ ^goto(page16)
+
+u:(page sixteen) %page16 ~end ~robotlike Okay \pau=300\ I'll tell the truth \pau=800\ He's my cousin \pau=800\ We met on Planet Argos and I invited him to visit Planent Earth\pau=800\ ~end ~kidlike When did you go to planet argos? ~end ~robotlike During your last summer vacation \pau=800\ You got to visit the Grand Canyo with your parents \pau=800\ Was I supposed to stay all by myself in the garage? ~end ~kidlike Where's the king now? ~end ~robotlike He's either downtown or at the docks \pau=800\ Where would you like to check? If you would like to visit downtown \pau=800\ say yes \pau=800\ Otherwise, say no \pau=800\
+    u1:(~yes) ^goto(page13) 
+    u1:(~no) ^goto(page37)
+
+u: (page eighteen) %page18 ~walkietalkie ALERT! DISTURBANCE AT THE DOCKS! ROBOTS HIJACKED THE FREIGHTER! ALERT! ALL DUTY OFFICERS REPORT TO THE DOCKS IMMEDIATELY! ~officer We better go. Hope onto my motercycle #motornoise
+  ~end ~narrator ~explain \style=neutral\ When you arrive at the docks, you notice a stand-off between the cops and the robots \pau=800\ Paddy's Sergeant runs up \pau=800\ ~sergeant They are threatening to sink the ship \pau=800\ it's filled with all sorts of sweets \pau=800\ if the ship sinks, no kids will be able to eat dessert for months \pau=800\ We want to negotiate, but we can't understand robot language! \pau=800\ #robotjibberish 
+~narrator ~explain Dewey offers to translate \pau=800\ ^goto(page19)
+
+u: (page nineteen) %page19  ~end ~narrator ~explain You have never heard Dewey talk in Robot language, but somehow he saves the day \pau=800\ He helps the police negotiate with the robots, whom agree to give back the ship \pau=800\ The mayor agrees to listen to the robot's problems \pau=800\ The robot king apologizes and decides to give one final word \pau=800\ ~kingrobot Thank you Dewey for helping resolve our issues \pau=800\ Everyone, let's commend Dewey! #cheers #theend
+
+u: (page twenty) %page20 ~end ~narrator ~explain You, Schuyler, and Dewey run home and quickly make robot costumes from old robot parts and garbage cans \pau=800\ #robotlaugh
+~end ~robotlike ~explain You are definitely low cost robots! \pau=800\ ~end ~kidlike ~explain Stop laughing and lead us to the docks \pau=800\ I can't see anything inside this trash can \pau=300\ ~end ~robotlike ~explain Ok \pau=300\ follow me \pau=800\ ~end ~narrator ~explain Dewey takes your hands and leads you both down the street to wait for the Robot Bus \pau=800\ ^goto(page23)
+
+u: (page twenty-three) %page23 ~end ~narrator ~explain The bus arrives shortly after and you all climb aboard \pau=800\ The driver puts the bus on autodrive as he checks passengers' tickets \pau=800\ ~end ~driver Ticket? \pau=800\ ~end ~kidlike We don't have any tickets \pau=800\ ~end ~narrator The driver talks into a small microphone over his shoulder \pau=800\ ~end ~driver two unidentified passengers aboard bus sixteen \pau=800\ prepare to intercept \pau=800\ ~end ~narrator ~explain You look ahead and spot two red security robots approaching your bus \pau=800\ You contemplate whether you want to run off the bus and scram \pau=800\ Do you wish to make a break for it? ~end ~narrator ~explain THIS SECTION IS INCOMPLETE #beyond this point has not been coded
+    u1:(~yes) ^goto(page48) 
+    u1:(~no) ^goto(page68)
+    
+u: (page twenty-six) %page26 ~end ~guard Cousin? Okay \pau=300\ come in \pau=300\ you should have said so \pau=800\ ~end ~narrator ~explain Dewey leads the way \pau=800\ Inside it looks like a lab filled with tankes of jellyfish \pau=800\ You become curious and ask Dewey ~end ~kidlike Why are there so many jellyfish? \pau=800\ ~end ~robotlike For brains \pau=800\ ~end ~kidlike What do you mean brains? What kind of brains? Why do you need brains? ^goto(page29)
+
+u: (page twenty-nine) %page29 ~end ~robotlike For all the robots who want super brain power ~end ~kingrobot Dewey! Good to see you! ~end ~narrator ~explain It's the robot king \pau=800\ He's sitting at his desk with his head detached from his body \pau=800\ The head is on the desk near you trying to talk \pau=800\ You start to get the creeps and contemplate whether you should leave \pau=800\ Do you want to leave?
+    u1:(~yes) ^goto(page32) 
+    u1:(~no) ^goto(page36)
+    
+u: (page thirty-two) %page32 ~end ~narrator ~explain You decide to leave and grab a hot fudge sundae at the Slurp Shop and forget about all of this \pau=800\ #theend
+
+u: (page thirty-six) %page36 ~end ~narrator ~explain You decide to stay and ask the king ~end ~kidlike How do the jellyfish give robots brain power? ~end ~kingrobot It's easy \pau=800\ You plug a jellyfish into a robot CPU \pau=800\ We use the jellyfish to think new thoughts since they have specialized nervous systems \pau=800\ Remember robots aren't just programmed \pau=800\ ~end ~kidlike Where did this idea come from to use jelly fish neurons? If robots can't think \pau=300\ then who had the idea? ~end ~kingrobot The queen of jellyfish \pau=800\ She's behind everything \pau=800\ She rules the sea \pau=800\ She wants an ary of robots to get humans to stop polluting the ocean \pau=800\ ~end ~kidlike My mom can help! She runs a blog on climate change and gets millions of readers. She can help write this \pau=800\ ~end ~narrator ~explain You and Dewey decide to run back to your house and start healing the ocean \pau=800\ This becomes your life mission \pau=800\ #theend

@@ -1,0 +1,29 @@
+topic: ~general() 
+language: enu
+
+concept:(end) $adventure=1
+concept:(narrator) \pau=800\ $adventure=2 \RSPD=100\ \VCT=80\
+concept:(dadlike) \pau=800\ $adventure=3 \RSPD=85\ \VCT=55\
+concept:(momlike) \pau=800\ $adventure=4 \RSPD=95\ \VCT=100\
+concept:(kidlike) \pau=800\ $adventure=5 \RSPD=100\ \VCT=110\
+concept:(robotlike) \pau=800\ $adventure=6 \RSPD=90\ 
+
+concept:(explain) $adventure=7
+concept:(headupleft) $adventure=8
+concept:(headdownright) $adventure=9
+        
+concept:(ledtwinkle) $adventure=10 
+concept:(run) $adventure=11 
+concept:(wipeforehead) $adventure=12 
+concept:(kidlaugh) $adventure=13 \pau=3000\
+concept:(knock) $adventure=14 \pau=1000\
+
+
+concept:(schuyler) \pau=800\ $adventure=2  \RSPD=100\ \VCT=105\ #incomplete
+concept:(officer) \pau=800\ $adventure=2 \RSPD=85\ \VCT=50\ #incomplete
+concept:(walkietalkie) \pau=800\ $adventure=2 \RSPD=85\ \VCT=80\ #incomplete
+concept:(sergeant) \pau=800\ $adventure=2 \RSPD=85\ \VCT=55\ #incomplete
+concept:(kingrobot) \pau=800\ $adventure=6 \RSPD=90\ \VCT=40\ #incomplete
+concept:(driver) \pau=800\ #incomplete
+concept:(guard) \pau=800\ #incomplete
+concept:(officerchuckle) $adventure=15 #incomplete \pau=3000\
